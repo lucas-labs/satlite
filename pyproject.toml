@@ -1,0 +1,15 @@
+[project]
+name = "satlite"
+version = "0.0.1"
+description = "Satlite"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "Lucas Colombo", email = "lucas@lucode.dev" }
+]
+requires-python = ">=3.11"
+dependencies = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
