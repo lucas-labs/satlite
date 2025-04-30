@@ -1,4 +1,4 @@
-<p align="center"><img src=".github/media/satlite.svg" height="32"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/lucas-labs/satlite/refs/heads/master/.github/media/satlite.svg" height="32"></p>
 
 
 <br>
