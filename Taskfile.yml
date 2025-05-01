@@ -1,0 +1,9 @@
+version: '3'
+
+silent: false
+
+tasks:
+  gen:dicts:
+    desc: Generate dictionaries
+    cmds:
+      - uv run python scripts/gen_dicts.py

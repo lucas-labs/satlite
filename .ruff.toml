@@ -1,0 +1,28 @@
+line-length = 100
+indent-width = 4
+output-format = "full"
+
+[format]
+quote-style = "preserve"
+
+[lint]
+select = ["E", "F", "Q", "I", "ANN", "ASYNC", "W", "S", "A"]
+ignore = ["A", "ANN401"]
+
+[flake8-quotes]
+docstring-quotes = "double"
+inline-quotes = "single"
+multiline-quotes = "single"
+
+[lint.flake8-annotations]
+mypy-init-return = true
+
+[lint.extend-per-file-ignores]
+# ignore in tests:
+#    S101 (use of assert)
+#    ANN001 (missing function argument type annotation)
+#    ANN201 (missing return type annotation )
+#    E701 (multiple statements on one line)
+#    F401 (unused import)
+"**/**/test/**" =  ["S101", "ANN001", "ANN201", "E701"]
+"**/**/test_*.py" =  ["S101", "ANN001", "ANN201", "E701"]

@@ -8,8 +8,25 @@ authors = [
     { name = "Lucas Colombo", email = "lucas@lucode.dev" }
 ]
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "litestar>=2.0.0,<3.0.0",
+    "pydantic>=2.0.0,<3.0.0"
+]
+
+[project.optional-dependencies]
+full = ["satlite[typed-settings,vite,jwt,jinja,structlog]"]
+granian = ["litestar-granian>=0.12.0,<1.0.0"]
+jwt = ["cryptography>=44.0.2", "pyjwt>=2.9.0"]
+structlog = ["structlog>=25.3.0"]
+typed-settings = ["python-dotenv>=1.1.0", "typed-settings>=24.6.0"]
+vite = ["litestar-vite>=0.13.0,<1.0.0", "jinja2>=3.1.6"]
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+    "ruff>=0.11.7",
+]
