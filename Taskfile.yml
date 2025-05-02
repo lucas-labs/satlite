@@ -7,3 +7,30 @@ tasks:
     desc: Generate dictionaries
     cmds:
       - uv run python scripts/gen_dicts.py
+  
+  build:
+    desc: Build the package
+    cmds:
+      - rm -rf dist
+      - uv build
+
+  upload-pypi:
+    desc: Upload to PyPI
+    prompt: This will upload the package to PyPI. Do you want to continue?
+    env:
+      UV_PUBLISH_TOKEN: '{{.PYPI_TOKEN}}'
+    cmds:
+      - uv publish
+
+  bump:
+    desc: Bump the version
+    cmds:
+      - uv run python scripts/bump.py
+  
+  publish:
+    desc: Publish the package to PyPI
+    cmds:
+      - task: bump
+      - uv sync --all-packages --all-extras --all-groups --upgrade
+      - task: build
+      - task: upload-pypi

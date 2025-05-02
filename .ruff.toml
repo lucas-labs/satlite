@@ -7,7 +7,7 @@ quote-style = "preserve"
 
 [lint]
 select = ["E", "F", "Q", "I", "ANN", "ASYNC", "W", "S", "A"]
-ignore = ["A", "ANN401"]
+ignore = ["A", "ANN401", "S603", "S607"]
 
 [flake8-quotes]
 docstring-quotes = "double"
