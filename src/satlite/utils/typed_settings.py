@@ -26,8 +26,8 @@ T = TypeVar('T')
 class DotenvLoader(ts.EnvLoader):
     """Loader for environment variables from a `.env` file."""
 
-    def __init__(self, prefix: str, dotenv_path: str | None = None) -> None:
-        load_dotenv(dotenv_path)
+    def __init__(self, prefix: str, dotenv_path: str | None = None, override: bool = False) -> None:
+        load_dotenv(dotenv_path, override=override)
         super().__init__(prefix=f'{prefix.upper()}_'.replace('-', '_'))
 
 
@@ -55,6 +55,7 @@ def get_settings(
     prefix: str,
     strlist_sep: str = '|',
     dotenv_path: str | Path | None = None,
+    override_envvars: bool = False,
 ) -> T:
     """
     Load settings from environment variables. **This function is cached and will only be called
@@ -66,7 +67,7 @@ def get_settings(
 
     return ts.load_settings(
         settings_type,
-        loaders=[DotenvLoader(prefix=prefix, dotenv_path=dotenv_path)],
+        loaders=[DotenvLoader(prefix=prefix, dotenv_path=dotenv_path, override=override_envvars)],
         converter=PydanticFieldConverter(strlist_sep=strlist_sep),
     )
 
