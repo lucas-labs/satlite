@@ -149,7 +149,7 @@ def bump_version(pyproject_file: Path) -> None:
             if commit_changes:
                 try:
                     # Commit the changes using git
-                    subprocess.run(['git', 'add', pyproject_file], check=True)
+                    subprocess.run(['git', 'add', '.'], check=True)
                     subprocess.run(['git', 'commit', '-m', f'release: 🔖 {to_version}'], check=True)
                     print('Changes committed successfully.')
                 except subprocess.CalledProcessError as e:
