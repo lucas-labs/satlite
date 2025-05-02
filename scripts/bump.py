@@ -144,6 +144,13 @@ def bump_version(pyproject_file: Path) -> None:
                 f.write(pyproject)
             print(f'Bumped version from {from_version} to {to_version}')
 
+            # uv sync --all-packages --all-extras --all-groups --upgrade
+            print('Running uv sync --all-packages --all-extras --all-groups --upgrade')
+            subprocess.run(
+                ['uv', 'sync', '--all-packages', '--all-extras', '--all-groups', '--upgrade'],
+                check=True,
+            )
+
             # commit?
             commit_changes = confirm(message='Do you want to commit the changes?', default=True)
             if commit_changes:

@@ -31,6 +31,5 @@ tasks:
     desc: Create a new release and upload to PyPI
     cmds:
       - task: bump
-      - uv sync --all-packages --all-extras --all-groups --upgrade
       - task: build
       - task: publish
