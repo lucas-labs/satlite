@@ -14,7 +14,7 @@ tasks:
       - rm -rf dist
       - uv build
 
-  upload-pypi:
+  publish:
     desc: Upload to PyPI
     prompt: This will upload the package to PyPI. Do you want to continue?
     env:
@@ -27,7 +27,7 @@ tasks:
     cmds:
       - uv run python scripts/bump.py
   
-  publish:
+  release:
     desc: Publish the package to PyPI
     cmds:
       - task: bump
