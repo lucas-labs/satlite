@@ -15,8 +15,8 @@ tasks:
       - uv build
 
   publish:
-    desc: Upload to PyPI
-    prompt: This will upload the package to PyPI. Do you want to continue?
+    desc: Publish the package
+    prompt: This will publish the package to PyPI. Are you sure?
     env:
       UV_PUBLISH_TOKEN: '{{.PYPI_TOKEN}}'
     cmds:
@@ -28,7 +28,7 @@ tasks:
       - uv run python scripts/bump.py
   
   release:
-    desc: Publish the package to PyPI
+    desc: Create a new release and upload to PyPI
     cmds:
       - task: bump
       - uv sync --all-packages --all-extras --all-groups --upgrade
