@@ -6,7 +6,7 @@
         "**/.ruff_cache": true,
         ".python-version": true,
 
-        // "**/.venv": true,
+        "**/.venv": true,
         "uv.lock": true,
 
         "**/__pycache__": true,
