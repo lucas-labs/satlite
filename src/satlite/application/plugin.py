@@ -54,7 +54,7 @@ class SatlitePlugin(InitPluginProtocol):
                 current_value = getattr(app_config, key, None)
                 if isinstance(current_value, list) and isinstance(value, list):
                     current_value.extend(value)
-                if isinstance(current_value, dict) and isinstance(value, dict):
+                elif isinstance(current_value, dict) and isinstance(value, dict):
                     current_value.update(value)
                 else:
                     setattr(app_config, key, value)
