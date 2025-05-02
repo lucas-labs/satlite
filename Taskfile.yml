@@ -33,4 +33,4 @@ tasks:
       - task: bump
       - uv sync --all-packages --all-extras --all-groups --upgrade
       - task: build
-      - task: upload-pypi
+      - task: publish
