@@ -39,13 +39,16 @@ class SatlitePlugin(InitPluginProtocol):
         api_settings: ApiSettings = ApiSettings(),
         server_settings: ServerSettings = ServerSettings(),
         vite_settings: ViteSettings | None = None,
+        enable_csrf: bool = False,
         **litestar_config: Unpack[LitestarAppConfigDict],
     ) -> None:
         self.app_settings = app_settings
         self.api_settings = api_settings
         self.server_settings = server_settings
 
-        default_cfg = get_default_config(app_settings, api_settings, server_settings, vite_settings)
+        default_cfg = get_default_config(
+            app_settings, api_settings, server_settings, vite_settings, enable_csrf
+        )
         self.litestar_config = merge_configs(default_cfg, litestar_config)
 
     def on_app_init(self, app_config: AppConfig) -> AppConfig:

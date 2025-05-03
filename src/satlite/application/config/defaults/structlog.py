@@ -13,7 +13,7 @@ from litestar.plugins.structlog import StructlogConfig
 def default_structlog() -> StructlogConfig:
     return StructlogConfig(
         structlog_logging_config=StructLoggingConfig(
-            log_exceptions='always',
+            log_exceptions='debug',
             logger_factory=default_logger_factory(as_json=False),
             standard_lib_logging_config=LoggingConfig(
                 root={'level': logging.getLevelName(30), 'handlers': ['queue_listener']},

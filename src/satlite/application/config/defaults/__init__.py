@@ -24,11 +24,11 @@ def get_default_config(
     api_settings: 'ApiSettings',
     server_settings: 'ServerSettings',
     vite_settings: 'ViteSettings | None' = None,
+    enable_csrf: bool = False,
 ) -> LitestarAppConfigDict:
     config = LitestarAppConfigDict(
         openapi_config=default_openapi(app_settings),
         cors_config=default_cors(api_settings),
-        csrf_config=default_csrf(api_settings),
         compression_config=CompressionConfig(backend='gzip'),
         signature_namespace=get_default_signature_namespaces(),
         logging_config=LoggingConfig(),
@@ -40,6 +40,9 @@ def get_default_config(
         ],
         middleware=[ServerNameMiddleware(server_name=server_settings.name)],
     )
+
+    if enable_csrf:
+        config['csrf_config'] = default_csrf(api_settings)
 
     if vite_settings:
         from litestar.contrib.jinja import JinjaTemplateEngine
