@@ -26,6 +26,12 @@ def clear_env(monkeypatch):
     monkeypatch.delenv('SATLITE_SERVER_PORT', raising=False)
 
 
+@pytest.fixture(autouse=True)
+def clear_cache():
+    # Clear the cache before each test
+    get_settings.cache_clear()
+
+
 def test_get_settings_defaults():
     settings: Settings = get_settings(settings_type=Settings, prefix='satlite', strlist_sep='|')
     assert settings.server.host == '127.0.0.1'

@@ -1,9 +1,8 @@
 from typing import Any
 from uuid import UUID
 
-from litestar.contrib.jwt import OAuth2Login
 from litestar.enums import RequestEncodingType
-from litestar.security.jwt import Token
+from litestar.security.jwt import OAuth2Login, Token
 
 
 def get_default_signature_namespaces() -> dict[str, Any]:
