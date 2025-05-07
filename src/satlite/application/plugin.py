@@ -1,4 +1,4 @@
-from typing import Unpack
+from typing import Callable, Unpack
 
 from litestar.config.app import AppConfig
 from litestar.plugins import InitPluginProtocol
@@ -31,6 +31,7 @@ class SatlitePlugin(InitPluginProtocol):
     app_settings: AppSettings
     api_settings: ApiSettings
     server_settings: ServerSettings
+    on_app_init_handlers: list[Callable[[AppConfig], AppConfig]]
 
     def __init__(
         self,
@@ -40,11 +41,13 @@ class SatlitePlugin(InitPluginProtocol):
         server_settings: ServerSettings = ServerSettings(),
         vite_settings: ViteSettings | None = None,
         enable_csrf: bool = False,
+        on_app_init: list[Callable[[AppConfig], AppConfig]] = [],
         **litestar_config: Unpack[LitestarAppConfigDict],
     ) -> None:
         self.app_settings = app_settings
         self.api_settings = api_settings
         self.server_settings = server_settings
+        self.on_app_init_handlers = on_app_init
 
         default_cfg = get_default_config(
             app_settings, api_settings, server_settings, vite_settings, enable_csrf
@@ -62,4 +65,6 @@ class SatlitePlugin(InitPluginProtocol):
                 else:
                     setattr(app_config, key, value)
 
+        for func in self.on_app_init_handlers:
+            app_config = func(app_config)
         return app_config
