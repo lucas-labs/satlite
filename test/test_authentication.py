@@ -3,7 +3,9 @@ from unittest.mock import AsyncMock, MagicMock
 
 import pytest
 
-from satlite.middleware.authentication import InclusiveAbstractAuthenticationMiddleware
+from satlite.middleware.authentication.inclusive_abstract_auth import (
+    InclusiveAbstractAuthenticationMiddleware,
+)
 
 
 # Fixtures
@@ -40,6 +42,17 @@ def mock_send() -> MagicMock:
     return MagicMock()
 
 
+class MockToken:
+    """Mock token class."""
+
+    def __init__(self, token: str):
+        self.token = token
+
+    @classmethod
+    def from_string(cls, token: str) -> 'MockToken':
+        return cls(token)
+
+
 # Tests
 @pytest.mark.asyncio
 async def test_include_matching(mock_app, mock_scope, mock_receive, mock_send):
@@ -54,6 +67,8 @@ async def test_include_matching(mock_app, mock_scope, mock_receive, mock_send):
     middleware = TestMiddleware(
         app=mock_app,
         include=include_pattern,
+        token_cls=MockToken,
+        retrieve_user_handler=AsyncMock(return_value='user'),
     )
 
     for path in ['/some/path', '/some/path/inner', '/some/path/anything']:
@@ -83,6 +98,8 @@ async def test_include_and_exclude_matching(mock_app, mock_scope, mock_receive, 
         app=mock_app,
         include=include_pattern,
         exclude=exclude_pattern,
+        token_cls=MockToken,
+        retrieve_user_handler=AsyncMock(return_value='user'),
     )
 
     test_paths = [
@@ -134,6 +151,8 @@ async def test_include_and_exclude_matching_sets_user_and_auth(
         app=mock_app,
         include=include_pattern,
         exclude=exclude_pattern,
+        token_cls=MockToken,
+        retrieve_user_handler=AsyncMock(return_value='the-user'),
     )
 
     test_cases = [
