@@ -5,10 +5,15 @@ from litestar.plugins import InitPluginProtocol
 
 from .config.defaults import get_default_config
 from .config.litestar import LitestarAppConfigDict
+from .config.mime_types import set_mime_types
 from .config.settings import Api as ApiSettings
 from .config.settings import App as AppSettings
 from .config.settings import Server as ServerSettings
 from .config.settings import Vite as ViteSettings
+
+# override mime types with correct ones
+# (there's an issue in mimetypes python library, with some mime types in Windows)
+set_mime_types()
 
 
 def merge_configs(
