@@ -43,13 +43,13 @@ def pretty_repr(obj: Any, indent: int = 0, top_level: bool = True) -> str:
         for f in fields(obj):
             value = getattr(obj, f.name)
             if is_dataclass(value):
-                lines.append('  ' * (indent + 1) + f'- {c("blue")(f.name)}')
+                lines.append('  ' * (indent + 1) + f'- {c("magenta")(f.name)}')
                 lines.append(pretty_repr(value, indent + 2, top_level=False))
             elif isinstance(value, dict):
-                lines.append('  ' * (indent + 1) + f'- {c("blue")(f.name)}:')
+                lines.append('  ' * (indent + 1) + f'- {c("green")(f.name)}:')
                 lines.append(pretty_repr_dict(value, indent + 2))
             elif isinstance(value, (list, tuple, set)):
-                lines.append('  ' * (indent + 1) + f'- {c("blue")(f.name)}:')
+                lines.append('  ' * (indent + 1) + f'- {c("yellow")(f.name)}:')
                 lines.append(pretty_repr_iterable(value, indent + 2))
             else:
                 lines.append('  ' * (indent + 1) + f'- {c("blue")(f.name)}: {value}')
@@ -96,3 +96,24 @@ def pretty_repr_iterable(it: Union[List[Any], Tuple[Any, ...], Set[Any]], indent
 
 def pretty_print(obj: Any) -> None:
     print(pretty_repr(obj))
+
+
+if __name__ == '__main__':
+    # Example usage
+    from dataclasses import dataclass
+
+    @dataclass
+    class Inner:
+        a: int
+        b: str
+        c: List[int]
+
+    @dataclass
+    class Outer:
+        x: Inner
+        y: List[int]
+        z: Dict[str, str]
+        z2: List[int]
+
+    obj = Outer(Inner(1, 'test', [1, 2]), [1, 2, 3], {'key': 'value', 'key2': 'value2'}, [])
+    pretty_print(obj)
