@@ -8,11 +8,12 @@ https://typed-settings.readthedocs.io
 
 from functools import lru_cache, wraps
 from pathlib import Path
-from typing import Any, TypeVar
+from typing import Any, Sequence, TypeVar
 
 try:
     import typed_settings as ts
     from dotenv import load_dotenv
+    from typed_settings.processors import Processor
 except ImportError:
     raise ImportError(
         '`typed-settings` and `python-dotenv` are required for this module to work. '
@@ -56,6 +57,8 @@ def get_settings(
     strlist_sep: str = '|',
     dotenv_path: str | Path | None = None,
     override_envvars: bool = False,
+    base_dir: Path = Path(),
+    processors: Sequence[Processor] = (),
 ) -> T:
     """
     Load settings from environment variables. **This function is cached and will only be called
@@ -69,6 +72,8 @@ def get_settings(
         settings_type,
         loaders=[DotenvLoader(prefix=prefix, dotenv_path=dotenv_path, override=override_envvars)],
         converter=PydanticFieldConverter(strlist_sep=strlist_sep),
+        base_dir=base_dir,
+        processors=processors,
     )
 
 
