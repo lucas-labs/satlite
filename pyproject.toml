@@ -1,6 +1,6 @@
 [project]
 name = "satlite"
-version = "0.4.5"
+version = "0.4.6"
 description = "Satlite"
 readme = "README.md"
 license = { text = "MIT" }
