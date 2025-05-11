@@ -159,7 +159,7 @@ class Vite:
     build_watch_command: list[str] = field(default_factory=lambda: ['bun', 'run', 'watch'])
     '''Default command to use for dev building with Vite.'''
 
-    bundle_dir: Path = field(default=Path('/web/public'))
+    bundle_dir: Path = field(default=Path('web/public'))
     '''Location of the compiled assets from  Vite. The manifest file will also be found here.'''
 
     detect_nodeenv: bool = field(default=True)
@@ -232,7 +232,7 @@ class Vite:
     ssr_output_dir: Path | None = field(default=None)
     '''SSR Output path'''
 
-    template_dir: Path = field(default=Path('/web/templates'))
+    template_dir: Path = field(default=Path('web/templates'))
     '''The directory jinja templates are stored in.'''
 
     use_server_lifespan: bool = field(default=True)
