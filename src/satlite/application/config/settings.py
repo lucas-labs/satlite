@@ -140,7 +140,7 @@ class App:
     debug: bool = field(default=False)
     '''A boolean indicating whether to run the application in debug mode.'''
 
-    enable_structlog: bool = field(default=True)
+    enable_structlog: bool = field(default=False)
     '''A boolean indicating whether to enable structlog logging.'''
 
 

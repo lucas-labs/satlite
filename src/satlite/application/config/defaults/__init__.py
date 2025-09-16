@@ -77,15 +77,16 @@ def get_default_config(
         pass
 
     # add structlog plugin only if structlog is installed
-    try:
-        from litestar.plugins.structlog import StructlogPlugin
+    if app_settings.enable_structlog is True:
+        try:
+            from litestar.plugins.structlog import StructlogPlugin
 
-        from .structlog import default_structlog
+            from .structlog import default_structlog
 
-        plugins = config.get('plugins')
-        if plugins is not None:
-            plugins.append(StructlogPlugin(config=default_structlog()))
-    except ImportError:
-        pass
+            plugins = config.get('plugins')
+            if plugins is not None:
+                plugins.append(StructlogPlugin(config=default_structlog()))
+        except ImportError:
+            pass
 
     return config

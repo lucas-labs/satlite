@@ -5,10 +5,12 @@ from pathlib import Path
 from typing import NoReturn
 
 from litestar import Litestar, get
+from litestar.logging import LoggingConfig
 from pydantic.dataclasses import dataclass
 
-from satlite import SatlitePlugin, setup_environment
+from satlite import setup_environment
 from satlite.application.config.settings import Api, App, Server
+from satlite.application.plugin import SatlitePlugin
 from satlite.utils.typed_settings import get_settings
 
 
@@ -29,7 +31,23 @@ def create_app() -> Litestar:
         """Health check endpoint."""
         return {'status': 'ok'}
 
-    return Litestar(plugins=[SatlitePlugin()], route_handlers=[health_check])
+    return Litestar(
+        plugins=[
+            SatlitePlugin(
+                logging_config=LoggingConfig(
+                    root={'level': 'DEBUG', 'handlers': ['queue_listener']},
+                    formatters={
+                        'standard': {
+                            'format': '-> -> %(asctime)s - %(name)s - %(levelname)s - %(message)s'
+                        }
+                    },
+                    log_exceptions='always',
+                    disable_stack_trace={404},
+                )
+            )
+        ],
+        route_handlers=[health_check],
+    )
 
 
 settings = get_settings(Settings, prefix='satlite', dotenv_path=Path(__file__).parent / '.env')
