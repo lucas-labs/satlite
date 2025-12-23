@@ -1120,7 +1120,7 @@ wheels = [
 
 [[package]]
 name = "satlite"
-version = "0.4.7"
+version = "0.5.0"
 source = { editable = "." }
 dependencies = [
     { name = "litestar" },
@@ -1171,7 +1171,7 @@ requires-dist = [
     { name = "jinja2", marker = "extra == 'vite'", specifier = ">=3.1.6" },
     { name = "litestar", specifier = ">=2.0.0,<3.0.0" },
     { name = "litestar-granian", marker = "extra == 'granian'", specifier = ">=0.12.0,<1.0.0" },
-    { name = "litestar-vite", marker = "extra == 'vite'", specifier = ">=0.13.0,<1.0.0" },
+    { name = "litestar-vite", marker = "extra == 'vite'", specifier = ">=0.15.0,<0.16.0" },
     { name = "pydantic", specifier = ">=2.0.0,<3.0.0" },
     { name = "pyjwt", marker = "extra == 'jwt'", specifier = ">=2.9.0" },
     { name = "python-dotenv", marker = "extra == 'typed-settings'", specifier = ">=1.1.0" },
