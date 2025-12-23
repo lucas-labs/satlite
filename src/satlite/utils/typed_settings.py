@@ -38,16 +38,16 @@ class PydanticFieldConverter(ts.converters.TSConverter):
     default value of a field.
     """
 
-    def structure(self, value: Any, cls: type[Any]) -> Any:
+    def structure(self, obj: Any, cl: type[Any]) -> Any:
         try:
             from pydantic.fields import FieldInfo
 
-            if isinstance(value, FieldInfo):
-                value = value.get_default(call_default_factory=True)
+            if isinstance(obj, FieldInfo):
+                obj = obj.get_default(call_default_factory=True)
         except ImportError:
             # In case pydantic is not installed, we can ignore this
             pass
-        return super().structure(value, cls)
+        return super().structure(obj, cl)
 
 
 def get_settings(
