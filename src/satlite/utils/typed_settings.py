@@ -60,10 +60,7 @@ def get_settings(
     base_dir: Path = Path(),
     processors: Sequence[Processor] = (),
 ) -> T:
-    """
-    Load settings from environment variables. **This function is cached and will only be called
-    once.**
-    """
+    """Load settings from environment variables."""
 
     if isinstance(dotenv_path, Path):
         dotenv_path = str(dotenv_path)
