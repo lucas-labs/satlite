@@ -9,6 +9,7 @@ from .config.mime_types import set_mime_types
 from .config.settings import Api as ApiSettings
 from .config.settings import App as AppSettings
 from .config.settings import Server as ServerSettings
+from .config.settings import StructlogSettings
 from .config.settings import Vite as ViteSettings
 
 # override mime types with correct ones
@@ -47,6 +48,7 @@ class SatlitePlugin(InitPluginProtocol):
         vite_settings: ViteSettings | None = None,
         enable_csrf: bool = False,
         on_app_init: list[Callable[[AppConfig], AppConfig]] = [],
+        structlog_settings: StructlogSettings = StructlogSettings(),
         **litestar_config: Unpack[LitestarAppConfigDict],
     ) -> None:
         self.app_settings = app_settings
@@ -55,7 +57,12 @@ class SatlitePlugin(InitPluginProtocol):
         self.on_app_init_handlers = on_app_init
 
         default_cfg = get_default_config(
-            app_settings, api_settings, server_settings, vite_settings, enable_csrf
+            app_settings,
+            api_settings,
+            server_settings,
+            structlog_settings,
+            vite_settings,
+            enable_csrf,
         )
         self.litestar_config = merge_configs(default_cfg, litestar_config)
 

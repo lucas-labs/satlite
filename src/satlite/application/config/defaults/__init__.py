@@ -6,6 +6,7 @@ from litestar.logging import LoggingConfig
 from ..litestar import LitestarAppConfigDict
 from ..middleware.server import ServerNameMiddleware
 from ..plugins.exceptions import SatliteExceptionHandler, SatliteProblemDetailsConfig
+from ..settings import StructlogSettings
 from .cache import default_cache
 from .cors import default_cors
 from .csrf import default_csrf
@@ -23,6 +24,7 @@ def get_default_config(
     app_settings: 'AppSettings',
     api_settings: 'ApiSettings',
     server_settings: 'ServerSettings',
+    structlog_settings: StructlogSettings,
     vite_settings: 'ViteSettings | None' = None,
     enable_csrf: bool = False,
 ) -> LitestarAppConfigDict:
@@ -85,7 +87,7 @@ def get_default_config(
 
             plugins = config.get('plugins')
             if plugins is not None:
-                plugins.append(StructlogPlugin(config=default_structlog()))
+                plugins.append(StructlogPlugin(config=default_structlog(structlog_settings)))
         except ImportError:
             pass
 

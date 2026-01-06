@@ -2,8 +2,9 @@ import binascii
 import os
 from dataclasses import field
 from pathlib import Path
-from typing import Final, Literal
+from typing import Any, Callable, Final, Literal
 
+from litestar.data_extractors import RequestExtractorField, ResponseExtractorField
 from pydantic import Field
 from pydantic.dataclasses import dataclass
 
@@ -428,3 +429,19 @@ class Vite:
 
     template_dir: Path = field(default=Path('web/templates'))
     '''The directory jinja templates are stored in.'''
+
+
+@dataclass
+class StructlogSettings:
+    log_exceptions: Literal['always', 'debug', 'never'] = field(default='debug')
+    logger_factory: Callable[..., Any] | None = field(default=None)
+    disable_stack_trace: set[int | type[Exception]] | None = field(default=None)
+    standard_lib_log_level: int = field(default=30)
+    standard_lib_log_formatters: dict[str, dict[str, Any]] = field(default_factory=dict)
+    standard_lib_loggers: dict[str, dict[str, Any]] = field(default_factory=dict)
+    middleware_request_log_fields: list[RequestExtractorField] = field(
+        default_factory=lambda: ['path', 'method', 'query', 'path_params']
+    )
+    middleware_response_log_fields: list[ResponseExtractorField] = field(
+        default_factory=lambda: ['status_code', 'body']
+    )

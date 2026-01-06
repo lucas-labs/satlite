@@ -14,8 +14,6 @@ def default_openapi(
     return OpenAPIConfig(
         title=app_settings.name,
         version=app_settings.version,
-        # components=[jwt_auth.openapi_components],
-        # security=[jwt_auth.security_requirement],
         use_handler_docstrings=True,
         render_plugins=[ScalarRenderPlugin(version='latest')],
     )
