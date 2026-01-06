@@ -48,11 +48,11 @@ wheels = [
 
 [[package]]
 name = "certifi"
-version = "2025.11.12"
+version = "2026.1.4"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/a2/8c/58f469717fa48465e4a50c014a0400602d3c437d7c0c468e17ada824da3a/certifi-2025.11.12.tar.gz", hash = "sha256:d8ab5478f2ecd78af242878415affce761ca6bc54a22a27e026d7c25357c3316", size = 160538, upload-time = "2025-11-12T02:54:51.517Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/e0/2d/a891ca51311197f6ad14a7ef42e2399f36cf2f9bd44752b3dc4eab60fdc5/certifi-2026.1.4.tar.gz", hash = "sha256:ac726dd470482006e014ad384921ed6438c457018f4b3d204aea4281258b2120", size = 154268, upload-time = "2026-01-04T02:42:41.825Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/70/7d/9bc192684cea499815ff478dfcdc13835ddf401365057044fb721ec6bddb/certifi-2025.11.12-py3-none-any.whl", hash = "sha256:97de8790030bbd5c2d96b7ec782fc2f7820ef8dba6db909ccf95449f2d062d4b", size = 159438, upload-time = "2025-11-12T02:54:49.735Z" },
+    { url = "https://files.pythonhosted.org/packages/e6/ad/3cc14f097111b4de0040c83a525973216457bbeeb63739ef1ed275c1c021/certifi-2026.1.4-py3-none-any.whl", hash = "sha256:9943707519e4add1115f44c2bc244f782c0249876bf51b6599fee1ffbedd685c", size = 152900, upload-time = "2026-01-04T02:42:40.15Z" },
 ]
 
 [[package]]
@@ -223,14 +223,14 @@ wheels = [
 
 [[package]]
 name = "faker"
-version = "39.0.0"
+version = "40.1.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "tzdata" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/30/b9/0897fb5888ddda099dc0f314a8a9afb5faa7e52eaf6865c00686dfb394db/faker-39.0.0.tar.gz", hash = "sha256:ddae46d3b27e01cea7894651d687b33bcbe19a45ef044042c721ceac6d3da0ff", size = 1941757, upload-time = "2025-12-17T19:19:04.762Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/d7/1d/aa43ef59589ddf3647df918143f1bac9eb004cce1c43124ee3347061797d/faker-40.1.0.tar.gz", hash = "sha256:c402212a981a8a28615fea9120d789e3f6062c0c259a82bfb8dff5d273e539d2", size = 1948784, upload-time = "2025-12-29T18:06:00.659Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/eb/5a/26cdb1b10a55ac6eb11a738cea14865fa753606c4897d7be0f5dc230df00/faker-39.0.0-py3-none-any.whl", hash = "sha256:c72f1fca8f1a24b8da10fcaa45739135a19772218ddd61b86b7ea1b8c790dce7", size = 1980775, upload-time = "2025-12-17T19:19:02.926Z" },
+    { url = "https://files.pythonhosted.org/packages/fc/23/e22da510e1ec1488966330bf76d8ff4bd535cbfc93660eeb7657761a1bb2/faker-40.1.0-py3-none-any.whl", hash = "sha256:a616d35818e2a2387c297de80e2288083bc915e24b7e39d2fb5bc66cce3a929f", size = 1985317, upload-time = "2025-12-29T18:05:58.831Z" },
 ]
 
 [[package]]
@@ -499,7 +499,7 @@ wheels = [
 
 [[package]]
 name = "litestar-vite"
-version = "0.15.0"
+version = "0.16.3"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx" },
@@ -507,9 +507,9 @@ dependencies = [
     { name = "typing-extensions" },
     { name = "websockets" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/8b/46/0687460789ce60b8ef739eda9c3ac8f4554f1603152adac3468e8d3c7e40/litestar_vite-0.15.0.tar.gz", hash = "sha256:111a9a1614f3885b682e78b43eb6109ba2eea0b8ad83eab524db50cf64fb8298", size = 344512, upload-time = "2025-12-22T23:38:04.121Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/3f/db/ff6a3766f20b831d7266306deccf679195170121ff57570ac51ec9298d78/litestar_vite-0.16.3.tar.gz", hash = "sha256:11e13f55de597e75153a8e086cb04ed0cb46acc6335fd70c9a14520111537bcd", size = 398559, upload-time = "2026-01-06T04:03:57.396Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/87/b6/b6230a93d3bc19cc24dcae9eb1d068938f18759d1e399c70e172571626fa/litestar_vite-0.15.0-py3-none-any.whl", hash = "sha256:d057efad67c04a4ea708c72496bfedde99b655fe30775a39b065d6a954c23af7", size = 219268, upload-time = "2025-12-22T23:38:02.829Z" },
+    { url = "https://files.pythonhosted.org/packages/ec/0c/4b0877a5ab557fb06fb9ad48fa5fc8296012fd21e334f5a60bbc1a543dff/litestar_vite-0.16.3-py3-none-any.whl", hash = "sha256:d63041054afc96d8519b552f886e8d323ac9cf9f72cbdcdbf0b7bb6b127da05b", size = 226669, upload-time = "2026-01-06T04:03:55.723Z" },
 ]
 
 [[package]]
@@ -1171,7 +1171,7 @@ requires-dist = [
     { name = "jinja2", marker = "extra == 'vite'", specifier = ">=3.1.6" },
     { name = "litestar", specifier = ">=2.0.0,<3.0.0" },
     { name = "litestar-granian", marker = "extra == 'granian'", specifier = ">=0.12.0,<1.0.0" },
-    { name = "litestar-vite", marker = "extra == 'vite'", specifier = ">=0.15.0,<0.16.0" },
+    { name = "litestar-vite", marker = "extra == 'vite'", specifier = ">=0.16.0,<0.17.0" },
     { name = "pydantic", specifier = ">=2.0.0,<3.0.0" },
     { name = "pyjwt", marker = "extra == 'jwt'", specifier = ">=2.9.0" },
     { name = "python-dotenv", marker = "extra == 'typed-settings'", specifier = ">=1.1.0" },
