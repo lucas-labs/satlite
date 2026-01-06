@@ -499,7 +499,7 @@ wheels = [
 
 [[package]]
 name = "litestar-vite"
-version = "0.15.0"
+version = "0.16.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx" },
@@ -507,9 +507,9 @@ dependencies = [
     { name = "typing-extensions" },
     { name = "websockets" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/8b/46/0687460789ce60b8ef739eda9c3ac8f4554f1603152adac3468e8d3c7e40/litestar_vite-0.15.0.tar.gz", hash = "sha256:111a9a1614f3885b682e78b43eb6109ba2eea0b8ad83eab524db50cf64fb8298", size = 344512, upload-time = "2025-12-22T23:38:04.121Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/43/b4/d0ba05be5421d05469d76ffc092cc6f4b6533b8b13d4eadb956c5bdd08c5/litestar_vite-0.16.2.tar.gz", hash = "sha256:0c33b6ea682fef9094266c01181eb6eb78187963ac865fd8bfc0150ad088fd40", size = 396694, upload-time = "2026-01-05T03:09:18.563Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/87/b6/b6230a93d3bc19cc24dcae9eb1d068938f18759d1e399c70e172571626fa/litestar_vite-0.15.0-py3-none-any.whl", hash = "sha256:d057efad67c04a4ea708c72496bfedde99b655fe30775a39b065d6a954c23af7", size = 219268, upload-time = "2025-12-22T23:38:02.829Z" },
+    { url = "https://files.pythonhosted.org/packages/cb/f0/e7961db2f3ce1123e70c097250444b87fcdceb7e6bcfade93d10502c1939/litestar_vite-0.16.2-py3-none-any.whl", hash = "sha256:00a92eeadd44e018f6ce624951fb3229734b43d2817402ad165d82de4b6f89ca", size = 226130, upload-time = "2026-01-05T03:09:17.109Z" },
 ]
 
 [[package]]
@@ -1171,7 +1171,7 @@ requires-dist = [
     { name = "jinja2", marker = "extra == 'vite'", specifier = ">=3.1.6" },
     { name = "litestar", specifier = ">=2.0.0,<3.0.0" },
     { name = "litestar-granian", marker = "extra == 'granian'", specifier = ">=0.12.0,<1.0.0" },
-    { name = "litestar-vite", marker = "extra == 'vite'", specifier = ">=0.15.0,<0.16.0" },
+    { name = "litestar-vite", marker = "extra == 'vite'", specifier = ">=0.16.2,<0.17.0" },
     { name = "pydantic", specifier = ">=2.0.0,<3.0.0" },
     { name = "pyjwt", marker = "extra == 'jwt'", specifier = ">=2.9.0" },
     { name = "python-dotenv", marker = "extra == 'typed-settings'", specifier = ">=1.1.0" },
