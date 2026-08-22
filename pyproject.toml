@@ -26,7 +26,7 @@ granian = ["litestar-granian>=0.12.0,<1.0.0"]
 jwt = ["cryptography>=44.0.2", "pyjwt>=2.9.0"]
 structlog = ["structlog>=25.3.0"]
 typed-settings = ["python-dotenv>=1.1.0", "typed-settings>=24.6.0"]
-vite = ["litestar-vite>=0.16.0,<0.17.0", "jinja2>=3.1.6"]
+vite = ["litestar-vite>=0.31.0,<0.32.0", "jinja2>=3.1.6"]
 
 [build-system]
 requires = ["hatchling"]
